@@ -3,7 +3,19 @@
 }
 
 body {
-      background: linear-gradient(135deg, #fc7777, #c59cf7, #97def8);
-      background-attachment: fixed;
-      background-size: cover;
+      background-color: white;
+}
+
+@media (max-width: 375px) {
+
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .quizzy-logo {
+        margin: auto;
+        width: 100px;
+        height: auto;
+    }
 }
