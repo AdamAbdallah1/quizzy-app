@@ -24,4 +24,53 @@
         font-family: 'Manrope', sans-serif;
         font-weight: 200;
     }
+
+    .quiz-list {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        gap: 20px;
+    }
+
+    .quiz-card {
+        background-color: white;
+        width: 200px;
+        height: 110px;
+        justify-content: center;
+        align-items: center;
+        padding-top: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .quiz-card:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    .quiz-card h3 {
+        margin-top: -15px;
+        margin-bottom: 20px;
+    }
+
+    .quiz-card button{
+        margin-top: 15px;
+        background-color: black;
+        color: white;
+        border: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(255, 16, 16, 0.1);
+        cursor: pointer;
+    }
+
+    .quiz-card button:hover {
+        background-color: white;
+        color: black;
+    }
 }
