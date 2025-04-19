@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 errorMessage.style.color = "green";
                 errorMessage.textContent = "Welcome Admin!";
+                localStorage.setItem("adminUser", JSON.stringify(adminUser));
                 window.location.href = "../pages/dashboard.html"
             } else if (
                 logUser.logEmail === regUser.regEmail &&
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 errorMessage.style.color = "green";
                 errorMessage.textContent = `Welcome Back ${regUser.regUsername}`;
+                localStorage.setItem("currentUser", JSON.stringify(logUser));
                 window.location.href = "../pages/home.html";
             } else {
                 errorMessage.textContent = "Invalid email or password!";
