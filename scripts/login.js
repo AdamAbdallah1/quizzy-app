@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const logBtn = document.getElementById("login-button");
     const errorMessage = document.getElementById("error-message");
 
+    const adminUser = {
+        adminUsername: "Admin",
+        adminPassword: "Admin123"
+    };
+
     logBtn.addEventListener("click", () => {
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value.trim();
@@ -14,22 +19,33 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const storedUser = localStorage.getItem("quizzyUser");
+        const logUser = {
+            logUsername: username,
+            logPassword: password
+        };
 
-        if (storedUser) {
-            const regUser = JSON.parse(storedUser);
+        const regUserData = localStorage.getItem("quizzyUser");
+
+        if (regUserData) {
+            const regUser = JSON.parse(regUserData);
 
             if (
-                username === regUser.regUsername &&
-                password === regUser.regPassword
+                logUser.logUsername === adminUser.adminUsername &&
+                logUser.logPassword === adminUser.adminPassword
             ) {
                 errorMessage.style.color = "green";
-                errorMessage.textContent = "Welcome back!";
+                errorMessage.textContent = "Welcome Admin!";
+            } else if (
+                logUser.logUsername === regUser.regUser &&
+                logUser.logPassword === regUser.regPassword
+            ) {
+                errorMessage.style.color = "green";
+                errorMessage.textContent = `Welcome Back ${username}`;
             } else {
-                errorMessage.textContent = "Invalid username or password.";
+                errorMessage.textContent = "Invalid username or password!";
             }
         } else {
-            errorMessage.textContent = "No registered user found.";
+            errorMessage.textContent = "No registered user found";
         }
     });
 });
