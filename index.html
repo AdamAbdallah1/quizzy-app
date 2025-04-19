@@ -5,11 +5,53 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/auth.css">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 	<title>Quizzy - Quiz App</title>
 </head>
 <body>
-	
+	<header>
+		<img class="quizzy-logo" src="assets/logos/quizzy-logo.png" alt="Quizzy logo">
+	</header>
+	<main>
+		<section class="auth-container">
+			<div class="auth-header">
+				<h1>Register</h1>
+			</div>
+			<div class="auth-content">
+				<section class="user-input-container">
+					<div class="user-input-header">
+						<img src="assets/icons/user.svg" alt="user svg icon">
+						<p>Username</p>
+					</div>
+					<label class="user-input" for="username">
+						<input placeholder="Enter your username" type="text">
+					</label>
+				</section>
 
+				<section class="user-input-container">
+					<div class="user-input-header">
+						<img src="assets/icons/mail.svg" alt="mail svg icon">
+						<p>Email </p>
+					</div>
+					<label class="user-input" for="username">
+						<input placeholder="Enter your email" type="email">
+					</label>
+				</section>
+
+				<section class="user-input-container">
+					<div class="user-input-header">
+						<img src="assets/icons/password.svg" alt="password svg icon">
+						<p>Password</p>
+					</div>
+					<label class="user-input" for="username">
+						<input placeholder="Enter your username" type="password">
+					</label>
+				</section>
+				<button>Register</button>
+				<p class="login-p">Already have an account? <a href="pages/login.html"> Login now </a></p>
+			</div>
+		</section>
+	</main>
 	<script src="scripts/index.js"></script>
 </body>
 </html>
