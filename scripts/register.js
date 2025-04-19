@@ -11,19 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMessage.style.color = "#6b0000";
 
         if (!username || !email || !password) {
-            errorMessage.textContent = "All fields are required. Please fill them all.";
+            errorMessage.textContent = "All fields are required.";
             return;
         }
 
-        const regUser = {
+        const newUser = {
             regUsername: username,
             regEmail: email,
             regPassword: password
         };
 
-        localStorage.setItem("quizzyUser", JSON.stringify(regUser));
+        const storedUsers = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
 
-        errorMessage.style.color = "#014301";
+        const userExists = storedUsers.some(user => user.regEmail === email);
+        if (userExists) {
+            errorMessage.textContent = "Email already registered!";
+            return;
+        }
+
+        storedUsers.push(newUser);
+        localStorage.setItem("quizzyUsers", JSON.stringify(storedUsers));
+
+        errorMessage.style.color = "green";
         errorMessage.textContent = "User registered successfully!";
     });
 });
