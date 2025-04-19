@@ -4,6 +4,21 @@
         text-align: center;
         font-weight: 600;
         margin-top: 20px;
-        font-size: 15px;
+        font-size: 25px;
+    }
+
+    .container-header img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .welcome-user {
+        color: rgb(43, 43, 43);
+    }
+
+    .quiz-section-title {
+        margin-top: 30px;
+        text-align: center;
+        font-family: 'Manrope', sans-serif;
     }
 }
