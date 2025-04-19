@@ -1,10 +1,10 @@
-const regBtn = document.getElementById("register-button");
-
-const username = document.getElementById("username").value;
-const email = document.getElementById("mail").value;
-const password = document.getElementById("password").value;
-
-
-regBtn.addEventListener("click", function () {
-    
-})
+document.getElementById("register-button").addEventListener("click", () => {
+    const user = {
+      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value
+    };
+  
+    console.log(user);
+  });
+  
