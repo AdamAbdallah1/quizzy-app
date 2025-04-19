@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorMessage = document.getElementById("error-message");
 
     const adminUser = {
-        adminEmail: "Admin@quizzy.com",
+        adminEmail: "admin@quizzy.com",
         adminPassword: "Admin123"
     };
 
