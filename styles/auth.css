@@ -1,6 +1,6 @@
 @media (max-width: 375px) {
     .auth-container {
-        
+        flex-wrap: wrap;
         margin: auto;
         border-radius: 12px;
     }
@@ -24,10 +24,12 @@
         justify-content: center;
         align-items: center;
         margin-top: 30px;
+        flex-wrap: wrap
     }
 
     .user-input-header {
         display: flex;
+
         justify-content:center;
         align-items: center;
         gap: 10px;
@@ -107,8 +109,8 @@
 }
 
 .auth-container {
-        
     margin: auto;
+    margin-top: 30px;
     border-radius: 12px;
 }
 
