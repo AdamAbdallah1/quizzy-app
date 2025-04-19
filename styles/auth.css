@@ -1,0 +1,9 @@
+@media (max-width: 375px) {
+    .auth-container {
+        background: linear-gradient(135deg, #FAD4D4, #E5D4FA, #D4F0FA);    
+        width: 69%;
+        height: 50vh;
+        margin: auto;
+        border-radius: 12px;
+    }
+}
