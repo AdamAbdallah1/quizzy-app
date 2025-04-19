@@ -13,12 +13,15 @@
     }
 
     .welcome-user {
+        font-weight: 200;
         color: rgb(43, 43, 43);
     }
 
     .quiz-section-title {
+        color: black;
         margin-top: 30px;
         text-align: center;
         font-family: 'Manrope', sans-serif;
+        font-weight: 200;
     }
 }
