@@ -24,37 +24,32 @@ document.addEventListener("DOMContentLoaded", () => {
             logPassword: password
         };
 
-        const regUserData = localStorage.getItem("quizzyUser");
+        const storedUsers = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
 
-        if (regUserData) {
-            const regUser = JSON.parse(regUserData);
-
-            if (
-                logUser.logEmail === adminUser.adminEmail &&
-                logUser.logPassword === adminUser.adminPassword
-            ) {
-                errorMessage.style.color = "green";
-                errorMessage.textContent = "Welcome Admin!";
-                localStorage.setItem("adminUser", JSON.stringify(adminUser));
-                window.location.href = "../pages/dashboard.html"
-            } else if (
-                logUser.logEmail === regUser.regEmail &&
-                logUser.logPassword === regUser.regPassword
-            ) {
-                errorMessage.style.color = "green";
-                errorMessage.textContent = `Welcome Back ${regUser.regUsername}`;
-                logUser = {
-                    logUsername: regUser.regUsername,
-                    logEmail: email,
-                    logPassword: password
-                }
-                localStorage.setItem("currentUser", JSON.stringify(logUser));
-                window.location.href = "../pages/home.html";
-            } else {
-                errorMessage.textContent = "Invalid email or password!";
-            }
-        } else {
-            errorMessage.textContent = "No registered user found";
+        if (
+            logUser.logEmail === adminUser.adminEmail &&
+            logUser.logPassword === adminUser.adminPassword
+        ) {
+            errorMessage.style.color = "green";
+            errorMessage.textContent = "Welcome Admin!";
+            localStorage.setItem("adminUser", JSON.stringify(adminUser));
+            window.location.href = "../pages/dashboard.html";
+            return;
         }
+
+        const matchedUser = storedUsers.find(user =>
+            user.regEmail === logUser.logEmail &&
+            user.regPassword === logUser.logPassword
+        );
+
+        if (matchedUser) {
+            errorMessage.style.color = "green";
+            errorMessage.textContent = `Welcome Back ${matchedUser.regUsername}`;
+            localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+            window.location.href = "../pages/home.html";
+        } else {
+            errorMessage.textContent = "Invalid email or password!";
+        }
+
     });
 });
