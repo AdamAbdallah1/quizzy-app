@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const logUser = {
+        let logUser = {
             logEmail: email,
             logPassword: password
         };
@@ -43,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 errorMessage.style.color = "green";
                 errorMessage.textContent = `Welcome Back ${regUser.regUsername}`;
+                logUser = {
+                    logUsername: regUser.regUsername,
+                    logEmail: email,
+                    logPassword: password
+                }
                 localStorage.setItem("currentUser", JSON.stringify(logUser));
                 window.location.href = "../pages/home.html";
             } else {
