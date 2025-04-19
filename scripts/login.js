@@ -13,6 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
             errorMessage.textContent = "All fields are required. Please fill them all.";
             return;
         }
-    })
 
-})
+        const storedUser = localStorage.getItem("quizzyUser");
+
+        if (storedUser) {
+            const regUser = JSON.parse(storedUser);
+
+            if (
+                username === regUser.regUsername &&
+                password === regUser.regPassword
+            ) {
+                errorMessage.style.color = "green";
+                errorMessage.textContent = "Welcome back!";
+            } else {
+                errorMessage.textContent = "Invalid username or password.";
+            }
+        } else {
+            errorMessage.textContent = "No registered user found.";
+        }
+    });
+});
