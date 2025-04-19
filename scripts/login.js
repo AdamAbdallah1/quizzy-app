@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 errorMessage.style.color = "green";
                 errorMessage.textContent = "Welcome Admin!";
+                window.location.href = "../pages/dashboard.html"
             } else if (
                 logUser.logEmail === regUser.regEmail &&
                 logUser.logPassword === regUser.regPassword
