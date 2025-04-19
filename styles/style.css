@@ -21,3 +21,15 @@ body {
         height: auto;
     }
 }
+
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quizzy-logo {
+    margin: auto;
+    width: 100px;
+    height: auto;
+}
