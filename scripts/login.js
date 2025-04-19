@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 errorMessage.style.color = "green";
                 errorMessage.textContent = `Welcome Back ${regUser.regUsername}`;
+                window.location.href = "../pages/home.html";
             } else {
                 errorMessage.textContent = "Invalid email or password!";
             }
