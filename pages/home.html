@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../styles/template.css">
     <link rel="stylesheet" href="../styles/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-    <title>Home Page</title>
+    <title>Quizzy | Home</title>
 </head>
 <body>
     <div class="wrapper">
@@ -14,17 +14,24 @@
             <img src="../assets/logos/quizzy-logo.png" alt="Quizzy logo">
             <section class="user-profile">
                 <a href="../pages/login.html">Logout</a>
-                <p>adamabdallah</p>
-            </section>
+                <p id="header-user-name"></p>
+            </section>            
         </header>
         <main>
             <div class="container">
-                <p class="welcome-msg">Welcome back, <span id="user-name">Adam</span>! <br> Ready to test your knowledge?</p>
+                <section class="container-header">
+                    <p class="welcome-msg">
+                        Welcome back, <br> <span class="welcome-user" id="welcome-user-name"></span>! <br>
+                    </p>
+                </section>
+                <h2 class="quiz-section-title">Available Quizzes</h2>
+                <div id="quiz-list" class="quiz-list"></div>
             </div>
         </main>
         <footer>
             <p>Created by Adam Abdallah!</p>
         </footer>
     </div>
+    <script src="../scripts/home.js"></script>
 </body>
 </html>
