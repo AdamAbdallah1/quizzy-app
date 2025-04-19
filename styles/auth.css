@@ -1,9 +1,101 @@
 @media (max-width: 375px) {
     .auth-container {
-        background: linear-gradient(135deg, #FAD4D4, #E5D4FA, #D4F0FA);    
-        width: 69%;
-        height: 50vh;
+        
         margin: auto;
         border-radius: 12px;
+    }
+
+    .auth-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .auth-header h1{
+        margin-top: 10px;
+    }
+
+    .auth-content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .user-input-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-right: auto;
+    }
+
+    .user-input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .user-input {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .user-input input {
+        background-color: black;
+        border: none;
+        color: white;
+        border-radius: 12px;
+        text-align: left;
+        height: 25px;
+        margin-left: auto;
+    }
+
+    .user-input input:hover {
+        background-color: gray;
+        color: black;
+    }
+
+    .user-input input:active {
+        background-color: white;
+        color: black;
+    }
+
+    .auth-container button{
+        margin: auto;
+        margin-top: -10px;
+        border: none;
+        background-color: black;
+        color: white;
+        width: 100px;
+        height: 30px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .auth-container button:hover {
+        background-color: gray;
+        color: black;
+    }
+
+    .auth-container button:active {
+        background-color: white;
+        color: black;
+    }
+
+    .login-p {
+        color: gray;
+    }
+
+    .auth-container a{
+        text-decoration: none;
+        color: black;
     }
 }
