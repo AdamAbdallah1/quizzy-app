@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         welcomeUserName.textContent = "Guest";
     }
 
-    const htmlQuiz = JSON.parse(localStorage.getItem("quizzyQuizHTML"));
-    const jsQuiz = JSON.parse(localStorage.getItem("quizzyQuizJS"));
-    const sqlQuiz = JSON.parse(localStorage.getItem("quizzyQuizSQL"));
-    const phpQuiz = JSON.parse(localStorage.getItem("quizzyQuizPHP"));
+    const quizList = document.getElementById("quiz-list");
+    const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes")) || [];
+
+    
 });
