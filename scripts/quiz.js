@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let userScore = 0;
+    
     const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes"));
     const selectedCategory = localStorage.getItem("selectedQuizCategory");
     const quizSection = document.getElementById("quiz-section");
@@ -63,5 +65,12 @@ const homeBtn = document.getElementById("home-button");
 if (homeBtn) {
     homeBtn.addEventListener("click", () => {
         window.location.href = "../pages/home.html";
+
+        if (selected) {
+            alert("Correct");
+            userScore += q.points;
+
+            
+        }
     });
 }
