@@ -88,9 +88,9 @@ body {
 }
 
 .welcome-msg {
-    color: white;
+    color: black;
     text-align: center;
-    font-weight: 600;
+    font-weight: 200;
     margin-top: 20px;
     font-size: 25px;
 }
@@ -100,6 +100,7 @@ body {
     margin-top: 30px;
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
+    color: black;
 }
 
 .container-header img{
@@ -150,6 +151,7 @@ body {
 
 .quiz-card h3 {
     margin-top: -15px;
+    font-weight: 200;
     margin-bottom: 20px;
 }
 
