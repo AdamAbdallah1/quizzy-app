@@ -33,12 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         quizList.appendChild(card);
     });
 
-    // handle quiz click
     quizList.addEventListener("click", (e) => {
         if (e.target.classList.contains("quiz-button")) {
             const category = e.target.getAttribute("data-category");
             localStorage.setItem("selectedQuizCategory", category);
-            window.location.href = "../pages/quiz.html"; // replace with your actual quiz page
+            window.location.href = "../pages/quiz.html";
         }
     });
 });
