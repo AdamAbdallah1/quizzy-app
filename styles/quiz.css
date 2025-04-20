@@ -23,6 +23,13 @@ header a:hover {
     font-family: 'Manrope', sans-serif;
 }
 
+.final-score {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 200;
+}
+
 .quiz-section {
     display: flex;
     flex-direction: column;
