@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const questionBlock = document.createElement("div");
             questionBlock.classList.add("question-block");
 
+            const questionEl = document.createElement("h3");
+            questionEl.textContent = `${index + 1}. ${q.question}`;
+            questionBlock.appendChild(questionEl);
+
             
         })
     }
