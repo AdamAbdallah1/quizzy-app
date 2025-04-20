@@ -3,16 +3,21 @@ body {
 }
 
 .quiz-section-title {
+    margin-top: 30;
     text-align: center;
     margin-top: 20px;
+    font-family: 'Manrope', sans-serif;
 }
 
 .question-block {
+    margin-top: 30px;
     border: 2px solid #ccc;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Manrope', sans-serif;
+
 }
 
 .quiz-options {
@@ -32,6 +37,8 @@ button {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+
 }
 
 button:hover {
@@ -59,8 +66,10 @@ button:disabled {
     }
 
     .quiz-section-title {
+        margin-top: 30px;
         text-align: center;
         margin-top: 20px;
+        font-family: 'Manrope', sans-serif;
     }
 
     .quiz-section {
@@ -68,6 +77,7 @@ button:disabled {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        font-family: 'Manrope', sans-serif;
     }
 
     .question-block {
@@ -76,7 +86,7 @@ button:disabled {
         flex-direction: column;
         gap: 10px;
         width: 50%;
-
+        font-family: 'Manrope', sans-serif;
     }
 
     .question-block p{
@@ -86,6 +96,7 @@ button:disabled {
 
     .quiz-section h1 {
         font-size: 15px;
+        font-family: 'Manrope', sans-serif;
     }
 
     button {
@@ -95,6 +106,7 @@ button:disabled {
         border: none;
         cursor: pointer;
         border-radius: 20px;
+        font-family: 'Manrope', sans-serif;
     }
 
     button:hover {
