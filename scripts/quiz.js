@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
         pointsEl.textContent = `${q.points} points`;
         questionBlock.appendChild(pointsEl);
 
+        const feedbackEl = document.createElement("p");
+        feedbackEl.classList.add("feedback");
+        questionBlock.appendChild(feedbackEl);
+
         const doneBtn = document.createElement("button");
         doneBtn.textContent = "Done";
         doneBtn.addEventListener("click", () => {
@@ -50,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const correct = userAnswer === q.answer;
 
                 if (correct) {
-                    alert("Correct!");
+                    feedbackEl.textContent = "Correct Answer!";
+                    feedbackEl.classList.add("correctText");
                     userScore += q.points;
 
                     const currentUserData = localStorage.getItem("currentUser");
@@ -61,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log(`Score after question ${index + 1}:`, currentUser.score);
                     }
                 } else {
-                    alert("Wrong!");
+                    feedbackEl.textContent = "Wrong Answer!";
+                    feedbackEl.classList.add("wrongText");
                 }
 
                 doneBtn.disabled = true;
@@ -71,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         questionBlock.appendChild(doneBtn);
-
         quizSection.appendChild(questionBlock);
     });
 });
