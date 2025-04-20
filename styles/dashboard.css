@@ -10,4 +10,30 @@
     .container h1{
         font-weight: 200;
     }
+
+    .user-container {
+        width: 70%;
+        height: 200px;
+        background-color: white;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-item {
+        margin-top: 5px;
+        color: black;
+        font-weight: 200;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .user-item:hover{
+        background-color: black;
+        color: white;
+        border-radius: 12px;
+    }
 }
