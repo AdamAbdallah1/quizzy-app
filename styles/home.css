@@ -43,7 +43,7 @@
     }
 
     .quiz-card {
-        background-color: white;
+        background-color: #972FD2;
         width: 200px;
         height: 135px;
         justify-content: center;
@@ -82,8 +82,13 @@
     }
 }
 
+body {
+    color: white;
+
+}
+
 .welcome-msg {
-    color: black;
+    color: white;
     text-align: center;
     font-weight: 600;
     margin-top: 20px;
@@ -127,6 +132,7 @@
 
 .quiz-card {
     background-color: white;
+    color: black;
     width: 200px;
     height: 135px;
     justify-content: center;
@@ -149,8 +155,8 @@
 
 .quiz-card button{
     margin-top: 15px;
-    background-color: black;
     color: white;
+    background-color: black;
     border: none;
     width: 100px;
     height: 30px;
