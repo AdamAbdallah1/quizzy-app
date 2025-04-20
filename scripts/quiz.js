@@ -7,10 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!quizzes || !selectedCategory) return;
 
     const currentQuiz = quizzes.find(q => q.category === selectedCategory);
-
     if (!currentQuiz) return;
 
     quizTitle.textContent = currentQuiz.category;
+
+    // ✅ Reset user score before the quiz starts
+    const currentUserData = localStorage.getItem("currentUser");
+    if (currentUserData) {
+        const currentUser = JSON.parse(currentUserData);
+        currentUser.score = 0;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
 
     let userScore = 0;
 
@@ -41,10 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pointsEl.textContent = `${q.points} points`;
         questionBlock.appendChild(pointsEl);
 
-        const feedbackEl = document.createElement("p");
-        feedbackEl.classList.add("feedback");
-        questionBlock.appendChild(feedbackEl);
-
         const doneBtn = document.createElement("button");
         doneBtn.textContent = "Done";
         doneBtn.addEventListener("click", () => {
@@ -54,20 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 const correct = userAnswer === q.answer;
 
                 if (correct) {
-                    feedbackEl.textContent = "Correct Answer!";
-                    feedbackEl.classList.add("correctText");
+                    const correctText = document.createElement("p");
+                    correctText.classList.add("correctText");
+                    correctText.textContent = "Correct Answer!";
+                    questionBlock.appendChild(correctText);
+
                     userScore += q.points;
 
                     const currentUserData = localStorage.getItem("currentUser");
                     if (currentUserData) {
                         const currentUser = JSON.parse(currentUserData);
-                        currentUser.score = (currentUser.score || 0) + q.points;
+                        currentUser.score += q.points;
                         localStorage.setItem("currentUser", JSON.stringify(currentUser));
                         console.log(`Score after question ${index + 1}:`, currentUser.score);
                     }
                 } else {
-                    feedbackEl.textContent = "Wrong Answer!";
-                    feedbackEl.classList.add("wrongText");
+                    alert("Wrong!");
                 }
 
                 doneBtn.disabled = true;
