@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         adminPassword: "Admin123"
     };
 
+    forgetB = document.getElementById("forgetB");
+    forgetB.addEventListener("click", () => {
+        window.location.href = "../pages/passwordReset.html"
+    })
+
     logBtn.addEventListener("click", () => {
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
@@ -50,6 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             errorMessage.textContent = "Invalid email or password!";
         }
-
     });
 });
