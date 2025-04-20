@@ -7,3 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 })
+
+const homeBtn = document.getElementById("home-button");
+homeBtn.addEventListener("click", () => {
+    window.location.href ="../pages/home.html";
+})
