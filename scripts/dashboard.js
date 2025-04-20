@@ -9,3 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         userContainer.appendChild(userElement);
     });
 });
+
+const clearUsers = document.getElementById("clear-users");
+clearUsers.addEventListener("click", () => {
+    const users = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
+
+    const filteredUsers = users.filter(user => user.regUsername === "admin");
+
+    localStorage.setItem("quizzyUsers", JSON.stringify(filteredUsers));
+    window.location.reload();
+})
