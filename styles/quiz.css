@@ -63,11 +63,25 @@ button:disabled {
         margin-top: 20px;
     }
 
+    .quiz-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .question-block {
         background-color: white;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 50%;
+
+    }
+
+    .question-block p{
+        text-align: center;
+        color: gray;
     }
 
     .quiz-section h1 {
