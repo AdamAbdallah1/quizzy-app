@@ -32,6 +32,10 @@ header a:hover {
     border-radius: 12px;
 }
 
+.answer {
+    color: black;
+}
+
 .question-block {
     margin-top: 20px;
     border-radius: 12px;
