@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let userScore = 0;
-    
     const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes"));
     const selectedCategory = localStorage.getItem("selectedQuizCategory");
     const quizSection = document.getElementById("quiz-section");
@@ -13,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!currentQuiz) return;
 
     quizTitle.textContent = currentQuiz.category;
+
+    let userScore = 0;
 
     currentQuiz.questions.forEach((q, index) => {
         const questionBlock = document.createElement("div");
@@ -48,7 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
             if (selected) {
                 const userAnswer = selected.value;
                 const correct = userAnswer === q.answer;
-                alert(correct ? "Correct!" : "Wrong!");
+
+                if (correct) {
+                    alert("Correct!");
+                    userScore += q.points;
+
+                    const currentUserData = localStorage.getItem("currentUser");
+                    if (currentUserData) {
+                        const currentUser = JSON.parse(currentUserData);
+                        currentUser.score = (currentUser.score || 0) + q.points;
+                        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+                        console.log(`Score after question ${index + 1}:`, currentUser.score);
+                    }
+                } else {
+                    alert("Wrong!");
+                }
+
                 doneBtn.disabled = true;
             } else {
                 alert("Please select an answer.");
@@ -65,12 +80,5 @@ const homeBtn = document.getElementById("home-button");
 if (homeBtn) {
     homeBtn.addEventListener("click", () => {
         window.location.href = "../pages/home.html";
-
-        if (selected) {
-            alert("Correct");
-            userScore += q.points;
-
-            
-        }
     });
 }
