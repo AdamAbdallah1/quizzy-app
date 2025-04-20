@@ -3,9 +3,9 @@
 }
 
 body {
-    background-color: rgb(218, 218, 218);
-    height: 100%;
+    background: linear-gradient(to right, #89CFF0, #FF4C4C, #8A2BE2);
     font-family: 'Manrope', sans-serif;
+    
 }
 
 header {
@@ -62,7 +62,6 @@ header {
 }
 
 .wrapper {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
