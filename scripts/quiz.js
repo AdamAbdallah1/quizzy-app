@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     quizTitle.textContent = currentQuiz.category;
 
-    // ✅ Reset user score before the quiz starts
     const currentUserData = localStorage.getItem("currentUser");
     if (currentUserData) {
         const currentUser = JSON.parse(currentUserData);
@@ -20,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let userScore = 0;
+    let answeredCount = 0;
+    const totalQuestions = currentQuiz.questions.length;
 
     currentQuiz.questions.forEach((q, index) => {
         const questionBlock = document.createElement("div");
@@ -76,6 +77,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 doneBtn.disabled = true;
+                answeredCount++;
+
+                if (answeredCount === totalQuestions) {
+                    const finalScore = document.createElement("div");
+                    finalScore.classList.add("final-score");
+                    finalScore.textContent = `Your final score: ${userScore} points`;
+                    quizSection.appendChild(finalScore);
+
+                    const scoreRate = document.getElementById("score-rate");
+                    if (scoreRate) {
+                        scoreRate.textContent = `${userScore} points`;
+                    }
+                }
             } else {
                 alert("Please select an answer.");
             }
