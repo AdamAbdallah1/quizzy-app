@@ -3,19 +3,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const userContainer = document.querySelector(".user-container");
 
     users.forEach(user => {
-        const userElement = document.createElement("p");
-        userElement.textContent = `Username: ${user.regUsername}, Score: ${user.score || 0}`;
-        userElement.classList.add("user-item");
-        userContainer.appendChild(userElement);
+        const userCard = document.createElement("div");
+        userCard.classList.add("user-item");
+
+        // Show username, email (optional), and score
+        userCard.innerHTML = `
+            <p><strong>Username:</strong> ${user.regUsername}</p>
+            <p><strong>Score:</strong> ${user.score || 0}</p>
+        `;
+
+        userContainer.appendChild(userCard);
     });
 });
 
 const clearUsers = document.getElementById("clear-users");
-clearUsers.addEventListener("click", () => {
-    const users = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
 
-    const filteredUsers = users.filter(user => user.regUsername === "admin");
+if (clearUsers) {
+    clearUsers.addEventListener("click", () => {
+        const users = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
+        const filteredUsers = users.filter(user => user.regUsername === "admin");
 
-    localStorage.setItem("quizzyUsers", JSON.stringify(filteredUsers));
-    window.location.reload();
-})
+        localStorage.setItem("quizzyUsers", JSON.stringify(filteredUsers));
+        window.location.reload();
+    });
+}
