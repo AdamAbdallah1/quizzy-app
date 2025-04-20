@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const curCategory = localStorage.getItem("selectedQuizCategory");
     //console.log(curCategory);
+    const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes"));
+    //console.log(quizzes);
 })
 
 
