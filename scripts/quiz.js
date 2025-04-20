@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Display options
                 const optionsContainer = document.createElement("div");
-                optionsContainer.classList.add("options");
+                optionsContainer.classList.add("quiz-options");
 
                 q.options.forEach((option) => {
                     const optionLabel = document.createElement("label");
