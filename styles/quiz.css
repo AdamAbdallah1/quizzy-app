@@ -2,24 +2,72 @@ body {
     font-family: Arial, sans-serif;
 }
 
+header {
+    display: flex;
+}
+
+header a {
+    color: gray;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: black;
+}
+
 .quiz-section-title {
-    margin-top: 30;
+    margin-top: 30px;
     text-align: center;
     margin-top: 20px;
     font-family: 'Manrope', sans-serif;
 }
 
-.question-block {
-    margin-top: 30px;
-    border: 2px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.quiz-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family: 'Manrope', sans-serif;
-
+    border-radius: 12px;
 }
 
+.question-block {
+    margin-top: 20px;
+    border-radius: 12px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    padding: 20px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.question-block p{
+    text-align: center;
+    color: gray;
+}
+
+.quiz-section h1 {
+    font-size: 15px;
+    font-family: 'Manrope', sans-serif;
+}
+
+button {
+    background-color: black;
+    padding: 5px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'Manrope', sans-serif;
+}
+
+button:hover {
+    background-color: gray;
+    color: rgb(0, 0, 0);
+}
 .quiz-options {
     display: flex;
     flex-direction: column;
@@ -30,9 +78,14 @@ body {
     font-size: 16px;
 }
 
+.quiz-section h3{
+    text-align: center;
+}
+
 button {
     padding: 10px 15px;
-    background-color: #4CAF50;
+    background-color: black;
+    padding: 5px;
     color: white;
     border: none;
     border-radius: 8px;
@@ -42,7 +95,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: gray;
 }
 
 button:disabled {
@@ -112,5 +165,27 @@ button:disabled {
     button:hover {
         background-color: gray;
         color: rgb(0, 0, 0);
+    }
+}
+
+@media (max-width: 765px){
+    .question-block {
+        width: 60%;
+    }
+
+    .question-block button{
+        margin: auto;
+        width: 50%;
+    }
+}
+
+@media (min-width: 766px){
+    .question-block {
+        width: 50%;
+    }
+
+    .question-block button{
+        margin: auto;
+        width: 40%;
     }
 }
