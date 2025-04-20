@@ -1,21 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes")) || [];
+    const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes"));
     const selectedCategory = localStorage.getItem("selectedQuizCategory");
-
     const quizSection = document.getElementById("quiz-section");
     const quizTitle = document.getElementById("quiz-section-title");
 
-    if (!selectedCategory || quizzes.length === 0) {
-        quizTitle.textContent = "No quiz data found!";
-        return;
-    }
+    if (!quizzes || !selectedCategory) return;
 
-    const currentQuiz = quizzes.find(quiz => quiz.category === selectedCategory);
+    const currentQuiz = quizzes.find(q => q.category === selectedCategory);
 
-    if (!currentQuiz) {
-        quizTitle.textContent = "Selected category not found!";
-        return;
-    }
+    if (!currentQuiz) return;
 
     quizTitle.textContent = currentQuiz.category;
 
@@ -30,11 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionsContainer = document.createElement("div");
         optionsContainer.classList.add("quiz-options");
 
-        q.options.forEach(option => {
+        q.options.forEach((option) => {
+            const escapedOption = option.replace(/</g, "&lt;").replace(/>/g, "&gt;");
             const label = document.createElement("label");
             label.innerHTML = `
                 <input type="radio" name="question-${index}" value="${option}">
-                ${option}
+                ${escapedOption}
             `;
             optionsContainer.appendChild(label);
         });
@@ -60,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         questionBlock.appendChild(doneBtn);
+
         quizSection.appendChild(questionBlock);
     });
 });
 
-// Home button redirect
 const homeBtn = document.getElementById("home-button");
 if (homeBtn) {
     homeBtn.addEventListener("click", () => {
