@@ -34,5 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         errorMessage.style.color = "green";
         errorMessage.textContent = "User registered successfully!";
+        window.location.href = "pages/login.html";
     });
 });
