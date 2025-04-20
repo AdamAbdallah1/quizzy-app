@@ -1,22 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const curCategory = localStorage.getItem("selectedQuizCategory");
     //console.log("Selected Category:", curCategory);
-
-    if(curCategory) {
-        const quizTitle = document.getElementById("quiz-section-title");
-        if (quizTitle) quizTitle.textContent = curCategory;
-    }
-
     const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes"));
-    //console.log("All Quizzes:", quizzes);
 
-    if (quizzes && curCategory && quizzes[curCategory]) {
-        const questions = quizzes[curCategory];
-        const firstQuestion = questions[0];
+    const quizTitle = document.getElementById("quiz-section-title");
+    const quizSection = document.getElementById("quiz-section");
 
-        const questionElement = document.getElementById("quiz-question");
-        if (questionElement) questionElement.textContent = firstQuestion.question;
-    }
+    
+    
 });
 
 const homeBtn = document.getElementById("home-button");
