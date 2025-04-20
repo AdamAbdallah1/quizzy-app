@@ -5,22 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizTitle = document.getElementById("quiz-section-title");
 
     if (!quizzes || !selectedCategory) return;
-
     const currentQuiz = quizzes.find(q => q.category === selectedCategory);
     if (!currentQuiz) return;
 
     quizTitle.textContent = currentQuiz.category;
 
     const currentUserData = localStorage.getItem("currentUser");
-    if (currentUserData) {
-        const currentUser = JSON.parse(currentUserData);
+    let currentUser = currentUserData ? JSON.parse(currentUserData) : null;
+    if (currentUser) {
         currentUser.score = 0;
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
 
     let userScore = 0;
-    let answeredCount = 0;
-    const totalQuestions = currentQuiz.questions.length;
 
     currentQuiz.questions.forEach((q, index) => {
         const questionBlock = document.createElement("div");
@@ -33,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionsContainer = document.createElement("div");
         optionsContainer.classList.add("quiz-options");
 
-        q.options.forEach((option) => {
+        q.options.forEach(option => {
             const escapedOption = option.replace(/</g, "&lt;").replace(/>/g, "&gt;");
             const label = document.createElement("label");
             label.innerHTML = `
@@ -51,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const doneBtn = document.createElement("button");
         doneBtn.textContent = "Done";
+
         doneBtn.addEventListener("click", () => {
             const selected = questionBlock.querySelector(`input[name="question-${index}"]:checked`);
             if (selected) {
@@ -67,29 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const currentUserData = localStorage.getItem("currentUser");
                     if (currentUserData) {
-                        const currentUser = JSON.parse(currentUserData);
-                        currentUser.score += q.points;
+                        currentUser = JSON.parse(currentUserData);
+                        currentUser.score = (currentUser.score || 0) + q.points;
                         localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                        console.log(`Score after question ${index + 1}:`, currentUser.score);
+
+                        const allUsers = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
+                        const updatedUsers = allUsers.map(user => {
+                            if (user.regUsername === currentUser.regUsername) {
+                                return { ...user, score: currentUser.score };
+                            }
+                            return user;
+                        });
+                        localStorage.setItem("quizzyUsers", JSON.stringify(updatedUsers));
                     }
                 } else {
                     alert("Wrong!");
                 }
 
                 doneBtn.disabled = true;
-                answeredCount++;
-
-                if (answeredCount === totalQuestions) {
-                    const finalScore = document.createElement("div");
-                    finalScore.classList.add("final-score");
-                    finalScore.textContent = `Your final score: ${userScore} points`;
-                    quizSection.appendChild(finalScore);
-
-                    const scoreRate = document.getElementById("score-rate");
-                    if (scoreRate) {
-                        scoreRate.textContent = `${userScore} points`;
-                    }
-                }
             } else {
                 alert("Please select an answer.");
             }
