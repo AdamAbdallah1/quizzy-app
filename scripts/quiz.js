@@ -6,7 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizTitle = document.getElementById("quiz-section-title");
     const quizSection = document.getElementById("quiz-section");
 
-    
+    if (curCategory && quizzes && quizzes[curCategory]) {
+        quizTitle.textContent = curCategory;
+        const questions = quizzes[curCategory];
+
+        questions.forEach((q, index) => {
+            const questionBlock = document.createElement("div");
+            questionBlock.classList.add("question-block");
+
+            
+        })
+    }
     
 });
 
