@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userCard.classList.add("user-item");
 
         userCard.innerHTML = `
-            <p><strong>Username:</strong> ${user.regUsername} || <strong>Score:</strong> ${user.score || 0}</p>
+            <p><strong>Username:</strong> ${user.regUsername} || <strong>Score:</strong> ${user.score || 0} <button class="deleteUser" id="deleteUser">Delete</button></p>
         `;
 
         userContainer.appendChild(userCard);
