@@ -7,12 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
         userCard.classList.add("user-item");
 
         userCard.innerHTML = `
-            <p><strong>Username:</strong> ${user.regUsername} </p> <p><strong>Score:</strong> ${user.score || 0}</p><button class="delete-user" id="deleteUser">Delete</button>
+            <p><strong>Username:</strong> ${user.regUsername} </p> <p><strong>Score:</strong> ${user.score || 0}</p><button class="delete-user" id="delete-user">Delete</button>
         `;
 
         userContainer.appendChild(userCard);
     });
 });
+
+const deleteUser = document.getElementById("delete-user");
+deleteUser.addEventListener("click", () => {
+    //
+})
 
 const clearUsers = document.getElementById("clear-users");
 if (clearUsers) {
