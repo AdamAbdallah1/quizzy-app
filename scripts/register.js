@@ -30,7 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         storedUsers.push(newUser);
+
         localStorage.setItem("quizzyUsers", JSON.stringify(storedUsers));
+
+        console.log("Updated Stored Users in LocalStorage:", JSON.parse(localStorage.getItem("quizzyUsers")));
 
         errorMessage.style.color = "green";
         errorMessage.textContent = "User registered successfully!";
