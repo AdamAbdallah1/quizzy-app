@@ -93,12 +93,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 questionsAnswered++;
 
                 if (questionsAnswered === currentQuiz.questions.length) {
+                    // Mark quiz as completed
                     if (!currentUser.completedQuizzes) {
                         currentUser.completedQuizzes = [];
                     }
                     currentUser.completedQuizzes.push(selectedCategory);
                     localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                
+                    const finalScoreBlock = document.createElement("div");
+                    finalScoreBlock.classList.add("final-score");
+                
+                    finalScoreBlock.innerHTML = `
+                        <h2>Quiz Completed!</h2>
+                        <p>Your final score: <strong>${userScore}</strong> points!</p>
+                        <button class="go-home" id="go-home-button">Return to Home</button>
+                    `;
+                
+                    quizSection.appendChild(finalScoreBlock);
+                
+                    const goHomeBtn = document.getElementById("go-home-button");
+                    goHomeBtn.addEventListener("click", () => {
+                        window.location.href = "../pages/home.html";
+                    });
                 }
+                
 
             } else {
                 alert("Please select an answer.");
@@ -110,9 +128,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const homeBtn = document.getElementById("home-button");
-if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
-        window.location.href = "../pages/home.html";
-    });
-}
