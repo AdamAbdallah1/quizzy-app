@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const doneBtn = document.createElement("button");
         doneBtn.textContent = "Done";
 
+        if (currentUser.completedQuizzes && currentUser.completedQuizzes.includes(selectedCategory)) {
+            alert("You have already completed this quiz.");
+            window.location.href = "../pages/home.html";
+        }
+
         doneBtn.addEventListener("click", () => {
             const selected = questionBlock.querySelector(`input[name="question-${index}"]:checked`);
             if (selected) {
@@ -79,7 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         localStorage.setItem("quizzyUsers", JSON.stringify(updatedUsers));
                     }
                 } else {
-                    alert("Wrong!");
+                    const correctText = document.createElement("p");
+                    correctText.classList.add("correctText");
+                    correctText.textContent = "Incorrect Answer!";
+                    questionBlock.appendChild(correctText);
+
                 }
 
                 doneBtn.disabled = true;
