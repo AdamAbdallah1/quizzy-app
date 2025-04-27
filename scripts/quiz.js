@@ -12,12 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentUserData = localStorage.getItem("currentUser");
     let currentUser = currentUserData ? JSON.parse(currentUserData) : null;
-    //if (currentUser) {
-     //   currentUser.score = 0;
-       // localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    //}
+
+    if (currentUser && currentUser.completedQuizzes && currentUser.completedQuizzes.includes(selectedCategory)) {
+        alert("You have already completed this quiz.");
+        window.location.href = "../pages/home.html";
+        return; 
+    }
 
     let userScore = 0;
+    let questionsAnswered = 0;
 
     currentQuiz.questions.forEach((q, index) => {
         const questionBlock = document.createElement("div");
@@ -49,11 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const doneBtn = document.createElement("button");
         doneBtn.textContent = "Done";
 
-        if (currentUser.completedQuizzes && currentUser.completedQuizzes.includes(selectedCategory)) {
-            alert("You have already completed this quiz.");
-            window.location.href = "../pages/home.html";
-        }
-
         doneBtn.addEventListener("click", () => {
             const selected = questionBlock.querySelector(`input[name="question-${index}"]:checked`);
             if (selected) {
@@ -84,14 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         localStorage.setItem("quizzyUsers", JSON.stringify(updatedUsers));
                     }
                 } else {
-                    const correctText = document.createElement("p");
-                    correctText.classList.add("correctText");
-                    correctText.textContent = "Incorrect Answer!";
-                    questionBlock.appendChild(correctText);
-
+                    const wrongText = document.createElement("p");
+                    wrongText.classList.add("correctText");
+                    wrongText.textContent = "Incorrect Answer!";
+                    questionBlock.appendChild(wrongText);
                 }
 
                 doneBtn.disabled = true;
+
+                questionsAnswered++;
+
+                if (questionsAnswered === currentQuiz.questions.length) {
+                    if (!currentUser.completedQuizzes) {
+                        currentUser.completedQuizzes = [];
+                    }
+                    currentUser.completedQuizzes.push(selectedCategory);
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                }
+
             } else {
                 alert("Please select an answer.");
             }
