@@ -93,6 +93,11 @@
     cursor: pointer;
 }
 
+#forgetB {
+    background-color: white;
+    color: black;
+}
+
 .auth-container button:hover {
     background-color: gray;
     color: black;
@@ -102,6 +107,8 @@
     background-color: var(--primary-text);
     color: var(--primary-bg);
 }
+
+
 
 .login-p {
     color: var(--secondary-text);
