@@ -56,7 +56,6 @@ function handleRegister() {
     }, 1000);
 }
 
-// Helper functions:
 
 function clearError() {
     const errorMessage = document.getElementById("error-message");
