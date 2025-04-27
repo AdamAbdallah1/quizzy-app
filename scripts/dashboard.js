@@ -7,24 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
         userCard.classList.add("user-item");
 
         userCard.innerHTML = `
-            <p><strong>Username:</strong> ${user.regUsername} </p> <p><strong>Score:</strong> ${user.score || 0}</p><button class="delete-user" id="delete-user">Delete</button>
+            <p><strong>Username:</strong> ${user.regUsername} </p> 
+            <p><strong>Score:</strong> ${user.score || 0}</p>
+            <button class="delete-user">Delete</button>
         `;
 
         userContainer.appendChild(userCard);
     });
-});
 
-const deleteUser = document.getElementById("delete-user");
-deleteUser.addEventListener("click", () => {
-    //
-})
+    userContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("delete-user")) {
+            const userEmail = e.target.closest(".user-item").querySelector("p").textContent; // Get the username from the card
 
-const clearUsers = document.getElementById("clear-users");
-if (clearUsers) {
-    clearUsers.addEventListener("click", () => {
-        const users = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
-        const filteredUsers = users.filter(user => user.regUsername === "admin");
-        localStorage.setItem("quizzyUsers", JSON.stringify(filteredUsers));
-        window.location.reload();
+            const updatedUsers = users.filter(user => user.regUsername !== userEmail);
+            localStorage.setItem("quizzyUsers", JSON.stringify(updatedUsers));
+
+            e.target.closest(".user-item").remove();
+        }
     });
-}
+
+    const clearUsers = document.getElementById("clear-users");
+    if (clearUsers) {
+        clearUsers.addEventListener("click", () => {
+            const filteredUsers = users.filter(user => user.regUsername === "admin");
+            localStorage.setItem("quizzyUsers", JSON.stringify(filteredUsers));
+            window.location.reload();
+        });
+    }
+});
