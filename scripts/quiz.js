@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentUserData = localStorage.getItem("currentUser");
     let currentUser = currentUserData ? JSON.parse(currentUserData) : null;
-    if (currentUser) {
-        currentUser.score = 0;
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    }
+    //if (currentUser) {
+     //   currentUser.score = 0;
+       // localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    //}
 
     let userScore = 0;
 
