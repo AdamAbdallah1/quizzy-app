@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     userContainer.addEventListener("click", (e) => {
         if (e.target.classList.contains("delete-user")) {
-            const userEmail = e.target.closest(".user-item").querySelector("p").textContent; // Get the username from the card
+            const userEmail = e.target.closest(".user-item").querySelector("p").textContent;
 
             const updatedUsers = users.filter(user => user.regUsername !== userEmail);
             localStorage.setItem("quizzyUsers", JSON.stringify(updatedUsers));
