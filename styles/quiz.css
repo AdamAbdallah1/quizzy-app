@@ -56,7 +56,11 @@ header a:hover {
     font-family: 'Manrope', sans-serif;
     font-weight: 200;
     font-family: 'Manrope', sans-serif;
+}
 
+.question-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .question-block p{
