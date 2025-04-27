@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 questionsAnswered++;
 
                 if (questionsAnswered === currentQuiz.questions.length) {
-                    // Mark quiz as completed
                     if (!currentUser.completedQuizzes) {
                         currentUser.completedQuizzes = [];
                     }
@@ -126,5 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
         questionBlock.appendChild(doneBtn);
         quizSection.appendChild(questionBlock);
     });
+
+    const homeBtn = document.getElementById("home-button");
+    homeBtn.addEventListener("click", () => {
+        window.location.href = "../pages/home.html";
+    })
 });
 
