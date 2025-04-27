@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeUserName = document.getElementById("welcome-user-name");
     const quizList = document.getElementById("quiz-list");
 
-    // Display the user name
     const currentUserData = localStorage.getItem("currentUser");
     if (currentUserData) {
         const currentUser = JSON.parse(currentUserData);
@@ -14,10 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         welcomeUserName.textContent = "Guest";
     }
 
-    // Display the quiz list
     const quizzes = JSON.parse(localStorage.getItem("quizzyQuizzes")) || [];
 
-    quizList.innerHTML = ""; // Clear any previous quizzes
+    quizList.innerHTML = ""; 
 
     quizzes.forEach((quiz) => {
         const card = document.createElement("div");
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         quizList.appendChild(card);
     });
 
-    // Handle click on quiz button
     quizList.addEventListener("click", (e) => {
         if (e.target.classList.contains("quiz-button")) {
             const category = e.target.getAttribute("data-category");
