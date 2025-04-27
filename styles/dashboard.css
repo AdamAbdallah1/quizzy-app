@@ -28,6 +28,25 @@
     padding: 10px;
     cursor: pointer;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-user {
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    border:none;
+    cursor: pointer;
+    height: 30px;
+    width: 60px;
+}
+
+
+.delete-user:hover {
+    background-color: white;
+    color: black;
 }
 
 .user-item:hover{
