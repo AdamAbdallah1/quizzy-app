@@ -6,14 +6,11 @@ header {
     display: flex;
 }
 
-header a {
+header button {
     color: gray;
     font-weight: 300;
     text-decoration: none;
-}
-
-header a:hover {
-    color: black;
+    background-color: white;
 }
 
 .quiz-section-title {
