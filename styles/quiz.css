@@ -119,6 +119,30 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.final-score {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(78, 78, 78);
+}
+
+.final-score h1{
+    font-weight: 200;
+}
+
+.final-score p{
+    font-weight: 200;
+}
+
+.final-score button {
+    background-color: black;
+}
+
+.final-score button:hover {
+    background-color: rgb(78, 78, 78);
+}
+
 @media (max-width: 375px) {
     header {
         display: flex;
