@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     forgetB = document.getElementById("forgetB");
     forgetB.addEventListener("click", () => {
-        window.location.href = "../pages/passwordReset.html"
-    })
+        window.location.href = "../pages/passwordReset.html";
+    });
 
     logBtn.addEventListener("click", () => {
         const email = document.getElementById("email").value.trim();
@@ -19,21 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMessage.textContent = "";
         errorMessage.style.color = "#6b0000";
 
-        if (!email || !email) {
+        if (!email || !password) {
             errorMessage.textContent = "All fields are required. Please fill them all.";
             return;
         }
 
-        let logUser = {
-            logEmail: email,
-            logPassword: password
-        };
-
         const storedUsers = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
+        console.log("Stored Users for Login:", storedUsers);
 
         if (
-            logUser.logEmail === adminUser.adminEmail &&
-            logUser.logPassword === adminUser.adminPassword
+            email === adminUser.adminEmail &&
+            password === adminUser.adminPassword
         ) {
             errorMessage.style.color = "green";
             errorMessage.textContent = "Welcome Admin!";
@@ -43,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const matchedUser = storedUsers.find(user =>
-            user.regEmail === logUser.logEmail &&
-            user.regPassword === logUser.logPassword
+            user.regEmail === email && user.regPassword === password
         );
 
         if (matchedUser) {
