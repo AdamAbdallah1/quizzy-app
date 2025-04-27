@@ -23,9 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const storedUsers = JSON.parse(localStorage.getItem("quizzyUsers")) || [];
 
-        const userExists = storedUsers.some(user => user.regEmail === email);
+        const userExists = storedUsers.some(user => user.regUsername === username);
+        const emailExists = storedUsers.some(user => user.regEmail === email);
+
         if (userExists) {
+            errorMessage.textContent = "Username already registered!";
+            return;
+        } else if (emailExists){
             errorMessage.textContent = "Email already registered!";
+            return;
+        } else if (username.length < 5) {
+            errorMessage.textContent = "Username can't be less than 5 Characters!";
+            return;
+        } else if (password.length < 5) {
+            errorMessage.textContent = "Password can't be less than 5 Characters!";
             return;
         }
 
